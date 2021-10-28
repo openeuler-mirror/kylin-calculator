@@ -1,0 +1,33 @@
+From f535ce4d5691a5d0540376da32cad76ec2673028 Mon Sep 17 00:00:00 2001
+From: dou33 <johnwo3396@hotmail.com>
+Date: Thu, 28 Oct 2021 15:13:26 +0800
+Subject: [PATCH] fix switch translation issue
+
+---
+ src/menumodule.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/menumodule.cpp b/src/menumodule.cpp
+index c5fa261..744b06d 100644
+--- a/src/menumodule.cpp
++++ b/src/menumodule.cpp
+@@ -148,13 +148,13 @@ void menuModule::triggerMenu(QAction *act){
+         helpAction();
+     }
+     else if(tr("standard") == str){
+-        emit menuModuleChanged(str);
++        emit menuModuleChanged(QString("standard"));
+     }
+     else if(tr("scientific") == str){
+-        emit menuModuleChanged(str);
++        emit menuModuleChanged(QString("scientific"));
+     }
+     else if(tr("exchange rate") == str){
+-        emit menuModuleChanged(str);
++        emit menuModuleChanged(QString("exchange rate"));
+     }
+ }
+ 
+-- 
+2.24.3 (Apple Git-128)
+
