@@ -1,6 +1,6 @@
 %define debug_package %{nil}
 Name:           kylin-calculator
-Version:        1.0.25
+Version:        1.0.26
 Release:        1
 Summary:        Calculator tool for UKUI
 License:        GPL-3+
@@ -58,6 +58,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/calc.png
 
 %changelog
+* Tue Dec 7 2021 douyan <douyan@kylinos.cn> - 1.0.26
+- update to upstream version 1.0.26
+
+* Thu Oct 28 2021 douyan <douyan@kylinos.cn> - 1.0.25-2
+- fix switch translation issue
+
 * Wed Oct 27 2021 tanyulong <tanyulong@kylinos.cn> - 1.0.25-1
 - update to upstream version 1.0.25
 
