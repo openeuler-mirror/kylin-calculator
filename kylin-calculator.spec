@@ -1,11 +1,13 @@
 %define debug_package %{nil}
 Name:           kylin-calculator
 Version:        1.0.26
-Release:        1
+Release:        2
 Summary:        Calculator tool for UKUI
 License:        GPL-3+
 URL:            http://www.ukui.org
 Source0:        %{name}-%{version}.tar.gz
+
+patch0: fix-exchange-rate-display-error.patch         
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qtchooser
@@ -28,6 +30,7 @@ BuildRequires:  gsettings-qt-devel
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  kylin-calculator.pro
@@ -58,7 +61,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/pixmaps/calc.png
 
 %changelog
-* Tue Dec 7 2021 douyan <douyan@kylinos.cn> - 1.0.26
+* Tue Dec 7 2021 douyan <douyan@kylinos.cn> - 1.0.26-2
+- fix exchange rate display error
+
+* Tue Dec 7 2021 douyan <douyan@kylinos.cn> - 1.0.26-1
 - update to upstream version 1.0.26
 
 * Thu Oct 28 2021 douyan <douyan@kylinos.cn> - 1.0.25-2
