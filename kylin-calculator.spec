@@ -1,11 +1,12 @@
 %define debug_package %{nil}
 Name:           kylin-calculator
-Version:        1.0.0
+Version:        1.0.34
 Release:        1
 Summary:        Calculator tool for UKUI
 License:        GPL-3+
 URL:            http://www.ukui.org
 Source0:        %{name}-%{version}.tar.gz
+
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qtchooser
@@ -41,6 +42,8 @@ mkdir -p %{buildroot}/etc/bin/
 cp %{buildroot}/usr/bin/kylin-calculator %{buildroot}/etc/bin
 mkdir -p %{buildroot}/usr/share/doc/kylin-calculator/
 mkdir -p %{buildroot}/usr/share/man/man1/
+mkdir -p %{buildroot}/usr/share/pixmaps/
+cp image/calc.png %{buildroot}/usr/share/pixmaps/
 cp debian/copyright  %{buildroot}/usr/share/doc/kylin-calculator/
 gzip -c debian/changelog > %{buildroot}/usr/share/doc/kylin-calculator/changelog.gz
 gzip -c man/kylin-calculator.1	> %{buildroot}/usr/share/man/man1/kylin-calculator.1.gz
@@ -56,7 +59,29 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/doc/kylin-calculator/copyright
 %{_datadir}/man/man1/kylin-calculator.1.gz
 %{_datadir}/pixmaps/calc.png
+%{_datadir}/glib-2.0/schemas/org.kylin-calculator-data.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.ukui.log4qt.kylin-calculator.gschema.xml
+%{_datadir}/kylin-calculator/translations/kylin-calculator_zh_CN.qm
+%{_datadir}/kylin-calculator/translations/kylin-calculator_bo_CN.qm
 
 %changelog
+* Tue Mar 01 2022 tanyulong <tanyulong@kylinos.cn> - 1.0.34-1
+- update upstream to version 1.0.34-1
+
+* Tue Dec 7 2021 douyan <douyan@kylinos.cn> - 1.0.26-2
+- fix exchange rate display error
+
+* Tue Dec 7 2021 douyan <douyan@kylinos.cn> - 1.0.26-1
+- update to upstream version 1.0.26
+
+* Thu Oct 28 2021 douyan <douyan@kylinos.cn> - 1.0.25-2
+- fix switch translation issue
+
+* Wed Oct 27 2021 tanyulong <tanyulong@kylinos.cn> - 1.0.25-1
+- update to upstream version 1.0.25
+
+* Tue Oct 26 2021 douyan <douyan@kylinos.cn> - 1.0.1-1
+- update to upstream version 1.0.1
+
 * Tue Dec 15 2020 lvhan <lvhan@kylinos.cn> - 1.0.0-1
 - update to upstream version 1.0.0
