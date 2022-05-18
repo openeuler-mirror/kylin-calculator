@@ -1,9 +1,9 @@
 %define debug_package %{nil}
 Name:           kylin-calculator
 Version:        1.0.34
-Release:        1
+Release:        2
 Summary:        Calculator tool for UKUI
-License:        GPL-3+
+License:        LGPL-3.0-or-later and GPL-3.0-or-later
 URL:            http://www.ukui.org
 Source0:        %{name}-%{version}.tar.gz
 
@@ -65,6 +65,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kylin-calculator/translations/kylin-calculator_bo_CN.qm
 
 %changelog
+* Wed May 18 2022 tanyulong <tanyulong@kylinos.cn> - 1.0.34-2
+- Improve the project according to the requirements of compliance improvement
+
 * Tue Mar 01 2022 tanyulong <tanyulong@kylinos.cn> - 1.0.34-1
 - update upstream to version 1.0.34-1
 
