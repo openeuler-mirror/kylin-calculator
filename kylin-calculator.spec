@@ -1,12 +1,13 @@
 %define debug_package %{nil}
 Name:           kylin-calculator
 Version:        1.0.34
-Release:        3
+Release:        4
 Summary:        Calculator tool for UKUI
 License:        LGPL-3.0-or-later and GPL-3.0-or-later
 URL:            http://www.ukui.org
 Source0:        %{name}-%{version}.tar.gz
 Patch01:        0001-add-and-update-some-zangwen-translate.patch
+Patch02:        0001-update-desktop-file-and-add-sdk-translate.patch
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qtchooser
@@ -31,6 +32,7 @@ BuildRequires:  qt5-linguist
 %prep
 %setup -q
 %patch01 -p1
+%patch02 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  kylin-calculator.pro
@@ -67,6 +69,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kylin-calculator/translations/kylin-calculator_bo_CN.qm
 
 %changelog
+* Tue Sep 27 2022 lvfei <lvfei@kylinos.cn> - 1.0.34-4
+- Type:bugfix
+- CVE:
+- SUG:NA
+- DESC: add patch:0001-update-desktop-file-and-add-sdk-translate.patch
+
 * Fri Sep 9 2022 lvfei <lvfei@kylinos.cn> - 1.0.34-3
 - Type:bugfix
 - CVE:
