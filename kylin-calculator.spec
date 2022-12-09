@@ -1,13 +1,12 @@
 %define debug_package %{nil}
 Name:           kylin-calculator
-Version:        1.0.34
-Release:        4
+Version:        1.1.0
+Release:        1
 Summary:        Calculator tool for UKUI
 License:        LGPL-3.0-or-later and GPL-3.0-or-later
 URL:            http://www.ukui.org
 Source0:        %{name}-%{version}.tar.gz
-Patch01:        0001-add-and-update-some-zangwen-translate.patch
-Patch02:        0001-update-desktop-file-and-add-sdk-translate.patch
+
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qtchooser
@@ -18,7 +17,8 @@ BuildRequires:  pkgconf
 BuildRequires:  gsl-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  gsettings-qt-devel
-BuildRequires:  qt5-linguist
+BuildRequires:  gmp-devel
+BuildRequires:  ukui-interface
 
 # Requires: NetworkManager
 
@@ -31,8 +31,6 @@ BuildRequires:  qt5-linguist
 
 %prep
 %setup -q
-%patch01 -p1
-%patch02 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  kylin-calculator.pro
@@ -67,8 +65,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.ukui.log4qt.kylin-calculator.gschema.xml
 %{_datadir}/kylin-calculator/translations/kylin-calculator_zh_CN.qm
 %{_datadir}/kylin-calculator/translations/kylin-calculator_bo_CN.qm
+%{_datadir}/kylin-user-guide/data/guide/kylin-calculator/*
 
 %changelog
+* Mon Oct 24 2022 tanyulong <tanyulong@kylinos.cn> - 1.1.0-1
+- update upstream version 1.1.0
+
 * Tue Sep 27 2022 lvfei <lvfei@kylinos.cn> - 1.0.34-4
 - Type:bugfix
 - CVE:
