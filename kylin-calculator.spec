@@ -1,7 +1,6 @@
-%define debug_package %{nil}
 Name:           kylin-calculator
 Version:        1.0.34
-Release:        2
+Release:        3
 Summary:        Calculator tool for UKUI
 License:        LGPL-3.0-or-later and GPL-3.0-or-later
 URL:            http://www.ukui.org
@@ -65,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kylin-calculator/translations/kylin-calculator_bo_CN.qm
 
 %changelog
+* Thu Dec 08 2022 fushanqing <fushanqing@kylinos.cn> - 1.0.34-3
+- Enable debuginfo for fix strip
+
 * Wed May 18 2022 tanyulong <tanyulong@kylinos.cn> - 1.0.34-2
 - Improve the project according to the requirements of compliance improvement
 
