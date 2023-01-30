@@ -1,7 +1,6 @@
-%define debug_package %{nil}
 Name:           kylin-calculator
 Version:        1.1.0
-Release:        1
+Release:        2
 Summary:        Calculator tool for UKUI
 License:        LGPL-3.0-or-later and GPL-3.0-or-later
 URL:            http://www.ukui.org
@@ -17,17 +16,18 @@ BuildRequires:  pkgconf
 BuildRequires:  gsl-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  gsettings-qt-devel
-BuildRequires:  gmp-devel
 BuildRequires:  ukui-interface
+BuildRequires:  gmp-devel
+BuildRequires:  libkysdk-kabase-devel
 
 # Requires: NetworkManager
 
 %description
- Calculator is a lightweight calculator based on
- QT5 development, can provide scientific calculation
- and exchange rate conversion and other calculation
- modes, with simple to use, friendly interface
- and other advantages.
+Calculator is a lightweight calculator based on
+QT5 development, can provide scientific calculation
+and exchange rate conversion and other calculation
+modes, with simple to use, friendly interface
+and other advantages.
 
 %prep
 %setup -q
@@ -68,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kylin-user-guide/data/guide/kylin-calculator/*
 
 %changelog
+* Mon Jan 30 2023 peijiankang <peijiankang@kylinos.cn> - 1.1.0-2
+- add debugsource and debuginfo
+
 * Mon Oct 24 2022 tanyulong <tanyulong@kylinos.cn> - 1.1.0-1
 - update upstream version 1.1.0
 
