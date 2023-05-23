@@ -1,6 +1,5 @@
-%define debug_package %{nil}
 Name:           kylin-calculator
-Version:        1.0.34
+Version:        1.1.0
 Release:        2
 Summary:        Calculator tool for UKUI
 License:        LGPL-3.0-or-later and GPL-3.0-or-later
@@ -17,15 +16,18 @@ BuildRequires:  pkgconf
 BuildRequires:  gsl-devel
 BuildRequires:  qt5-qtx11extras-devel
 BuildRequires:  gsettings-qt-devel
+BuildRequires:  ukui-interface
+BuildRequires:  gmp-devel
+BuildRequires:  libkysdk-kabase-devel
 
 # Requires: NetworkManager
 
 %description
- Calculator is a lightweight calculator based on
- QT5 development, can provide scientific calculation
- and exchange rate conversion and other calculation
- modes, with simple to use, friendly interface
- and other advantages.
+Calculator is a lightweight calculator based on
+QT5 development, can provide scientific calculation
+and exchange rate conversion and other calculation
+modes, with simple to use, friendly interface
+and other advantages.
 
 %prep
 %setup -q
@@ -63,8 +65,27 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.ukui.log4qt.kylin-calculator.gschema.xml
 %{_datadir}/kylin-calculator/translations/kylin-calculator_zh_CN.qm
 %{_datadir}/kylin-calculator/translations/kylin-calculator_bo_CN.qm
+%{_datadir}/kylin-user-guide/data/guide/kylin-calculator/*
 
 %changelog
+* Mon Jan 30 2023 peijiankang <peijiankang@kylinos.cn> - 1.1.0-2
+- add debugsource and debuginfo
+
+* Mon Oct 24 2022 tanyulong <tanyulong@kylinos.cn> - 1.1.0-1
+- update upstream version 1.1.0
+
+* Tue Sep 27 2022 lvfei <lvfei@kylinos.cn> - 1.0.34-4
+- Type:bugfix
+- CVE:
+- SUG:NA
+- DESC: add patch:0001-update-desktop-file-and-add-sdk-translate.patch
+
+* Fri Sep 9 2022 lvfei <lvfei@kylinos.cn> - 1.0.34-3
+- Type:bugfix
+- CVE:
+- SUG:NA
+- DESC: add patch:0001-add-and-update-some-zangwen-translate.patch
+
 * Wed May 18 2022 tanyulong <tanyulong@kylinos.cn> - 1.0.34-2
 - Improve the project according to the requirements of compliance improvement
 
