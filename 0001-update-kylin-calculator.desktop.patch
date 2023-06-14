@@ -1,0 +1,56 @@
+From 69e05fa36f398d7302b3524af2ee2c27ab6b206c Mon Sep 17 00:00:00 2001
+From: peijiankang <peijiankang@kylinos.cn>
+Date: Wed, 14 Jun 2023 09:31:23 +0800
+Subject: [PATCH] update kylin-calculator.desktop
+
+---
+ kylin-calculator.desktop                 | 3 +++
+ kylin-calculator.pri                     | 2 +-
+ translations/generate_translations_qm.sh | 4 ++--
+ 3 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/kylin-calculator.desktop b/kylin-calculator.desktop
+index 47c91bf..f8b3f5a 100644
+--- a/kylin-calculator.desktop
++++ b/kylin-calculator.desktop
+@@ -2,8 +2,11 @@
+ Name=Calculator
+ Name[zh_CN]=计算器
+ Name[bo_CN]=རྩིས་ཆས།
++Name[zh_HK]=計算器
+ GenericName[bo_CN]=རྩིས་ཆས།
+ GenericName=Calculator
++GenericName[zh_CN]=计算器
++GenericName[zh_HK]=計算器
+ Keywords=calculator
+ Exec=/usr/bin/kylin-calculator %u
+ Icon=kylin-calculator
+diff --git a/kylin-calculator.pri b/kylin-calculator.pri
+index 5bfef56..c330e31 100644
+--- a/kylin-calculator.pri
++++ b/kylin-calculator.pri
+@@ -15,7 +15,7 @@ LIBS += -L/usr/lib/libukui-log4qt.so.1.0.0 -lukui-log4qt
+ CONFIG += link_pkgconfig c++11 link_pkgconfig lrelease
+ PKGCONFIG += gsettings-qt gsl
+ 
+-message($$system(./translations/sgenerate_translations_qm.sh))
++message($$system(./translations/generate_translations_qm.sh))
+ 
+ INCLUDEPATH +=                \
+     $$PWD/src/                \
+diff --git a/translations/generate_translations_qm.sh b/translations/generate_translations_qm.sh
+index 62fa6b5..c162798 100755
+--- a/translations/generate_translations_qm.sh
++++ b/translations/generate_translations_qm.sh
+@@ -4,5 +4,5 @@ ts_file_list=(`ls translations/*.ts`)
+ 
+ for ts in "${ts_file_list[@]}"
+ do
+-    lrelease "${ts}"
+-done
+\ No newline at end of file
++    lrelease-qt5 "${ts}"
++done
+-- 
+2.33.0
+

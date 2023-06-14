@@ -1,11 +1,11 @@
 Name:           kylin-calculator
 Version:        1.1.0
-Release:        2
+Release:        3
 Summary:        Calculator tool for UKUI
 License:        LGPL-3.0-or-later and GPL-3.0-or-later
 URL:            http://www.ukui.org
 Source0:        %{name}-%{version}.tar.gz
-
+Patch01:        0001-update-kylin-calculator.desktop.patch
 
 BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qtchooser
@@ -31,6 +31,7 @@ and other advantages.
 
 %prep
 %setup -q
+%patch01 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  kylin-calculator.pro
@@ -40,8 +41,6 @@ and other advantages.
 rm -rf $RPM_BUILD_ROOT
 make INSTALL_ROOT=%{buildroot} install
 
-mkdir -p %{buildroot}/etc/bin/
-cp %{buildroot}/usr/bin/kylin-calculator %{buildroot}/etc/bin
 mkdir -p %{buildroot}/usr/share/doc/kylin-calculator/
 mkdir -p %{buildroot}/usr/share/man/man1/
 mkdir -p %{buildroot}/usr/share/pixmaps/
@@ -55,7 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %{_bindir}/kylin-calculator
-%{_sysconfdir}/bin/kylin-calculator
 %{_datadir}/applications/kylin-calculator.desktop
 %{_datadir}/doc/kylin-calculator/changelog.gz
 %{_datadir}/doc/kylin-calculator/copyright
@@ -68,6 +66,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/kylin-user-guide/data/guide/kylin-calculator/*
 
 %changelog
+* Wed Jun 14 2023 peijiankang <peijiankang@kylinos.cn> - 1.1.0-3
+- Type:bugfix
+- CVE:
+- SUG:NA
+- DESC: update kylin-calculator.desktop
+
 * Mon Jan 30 2023 peijiankang <peijiankang@kylinos.cn> - 1.1.0-2
 - add debugsource and debuginfo
 
