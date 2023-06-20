@@ -1,0 +1,12 @@
+diff -u -r kylin-calculator-1.1.0/src/menumodule/menumodule.cpp kylin-calculator-1.1.0/src/menumodule/menumodule.cpp
+--- kylin-calculator-1.1.0/src/menumodule/menumodule.cpp	2022-03-31 15:50:21.000000000 +0800
++++ kylin-calculator-1.1.0/src/menumodule/menumodule.cpp	2023-06-15 23:45:53.000000000 +0800
+@@ -20,7 +20,7 @@
+ #include "menumodule.h"
+ #include "xatom-helper.h"
+ 
+-menuModule::menuModule(QWidget *parent = nullptr) : QWidget(parent)
++menuModule::menuModule(QWidget *parent) : QWidget(parent)
+ {
+     init();
+ }

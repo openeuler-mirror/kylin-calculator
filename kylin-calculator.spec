@@ -5,6 +5,7 @@ Summary:        Calculator tool for UKUI
 License:        LGPL-3.0-or-later and GPL-3.0-or-later
 URL:            http://www.ukui.org
 Source0:        %{name}-%{version}.tar.gz
+Patch0:         fix-clang.patch
 
 
 BuildRequires:  qt5-qtbase-devel
@@ -30,7 +31,7 @@ modes, with simple to use, friendly interface
 and other advantages.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  kylin-calculator.pro
